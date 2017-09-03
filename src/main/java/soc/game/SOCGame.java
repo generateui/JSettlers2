@@ -22,6 +22,7 @@
  **/
 package soc.game;
 
+import soc.data.Data;
 import soc.disableDebug.D;
 
 import soc.message.SOCMessage;  // For static calls only; SOCGame does not interact with network messages
@@ -6841,7 +6842,7 @@ public class SOCGame implements Serializable, Cloneable
     public void buyRoad(final int pn)
     {
         SOCResourceSet resources = players[pn].getResources();
-        resources.subtract(1, SOCResourceConstants.CLAY);
+        resources.subtract(1, Data.ResourceType.CLAY_VALUE);
         resources.subtract(1, SOCResourceConstants.WOOD);
         oldGameState = gameState;  // PLAY1 or SPECIAL_BUILDING
         gameState = PLACING_ROAD;
